@@ -1,5 +1,5 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 
@@ -46,7 +46,14 @@ class App extends React.Component {
         <Switch>
           <Route exact path='/' component={HomePage} />
           <Route path='/shop' component={ShopPage} />
-          <Route path='/signin' component={SignInAndSignUpPage} />
+          <Route exact path='/signin' render={() => 
+            this.props.currentUser ? (
+              <Redirect to='/' />
+              ) : (
+                <SignInAndSignUpPage />
+              )
+            } 
+          />
         </Switch>
       </div>
     );
@@ -55,6 +62,14 @@ class App extends React.Component {
 
 
 // REDUX code start ----->
+
+// destructuring the user reducer, will get currentUser from it 
+  //need the currentUser STATE to render the right page
+const mapStateToProps = ({ user }) => (
+  {
+    currentUser: user.currentUser
+  }
+)
 
 // dispatch ensures whatever object is passed to it. its going to action obj that it pass to the reducer
   // setCurrentUser is a action object ,which dispatch needs
@@ -66,4 +81,4 @@ const mapDispatchToProps = dispatch => (
 
 // REDUX code end----->
 
-export default connect(null, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

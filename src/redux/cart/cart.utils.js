@@ -1,3 +1,4 @@
+//calculation that add items to the cart
 export const addItemToCart = (cartItems, cartItemToAdd) => {
     const existingCartItems = cartItems.find(
         cartItem => cartItem.id === cartItemToAdd.id

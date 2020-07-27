@@ -3,6 +3,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 import { connect } from 'react-redux';  //is a HOC 
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from '../../redux/user/user.selectors';
+import { selectCartHidden } from '../../redux/cart/cart.selectors';
+
 
 import { auth } from '../../firebase/firebase.utils';
 
@@ -49,11 +53,12 @@ const Header = ({ currentUser, hidden }) => (
 // REDUX code start ----->
 
 // state is coming from the upperlevel rootreducer
-    //advanced destructuring user, cart off of state
-const mapStateToProps = ({ user: {currentUser}, cart: {hidden} }) => (
+    //WHEN there is multiple items to be passed in we can use createStructuredSelector
+    // it automatically passes the whole state in
+const mapStateToProps = createStructuredSelector(
     {
-        currentUser,
-        hidden
+        currentUser: selectCurrentUser,
+        hidden: selectCartHidden
     }
 );
 

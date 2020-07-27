@@ -2,6 +2,8 @@ import React from 'react';
 import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCurrentUser } from './redux/user/user.selectors';
 
 import './App.css';
 
@@ -65,9 +67,11 @@ class App extends React.Component {
 
 // destructuring the user reducer, will get currentUser from it 
   //need the currentUser STATE to render the right page
-const mapStateToProps = ({ user }) => (
+   //WHEN there is multiple items to be passed in we can use createStructuredSelector
+    // it automatically passes the whole state in
+const mapStateToProps = createStructuredSelector(
   {
-    currentUser: user.currentUser
+    currentUser: selectCurrentUser
   }
 )
 

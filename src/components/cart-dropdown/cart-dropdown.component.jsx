@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { connect } from 'react-redux';
+import { createStructuredSelector } from 'reselect';
+import { selectCartItems } from '../../redux/cart/cart.selectors';
 
 import CartItem from '../cart-item/cart-item.component';
 
@@ -26,9 +28,13 @@ const CartDropdown = ({ cartItems }) => (
 
 // destructuring the cart reducer, will get cartItems from it 
   //need the cartItems STATE to render the right page
-const mapStateToProps = ({ cart: { cartItems } }) => (
+  
+   //WHEN there is multiple items to be passed in we can use createStructuredSelector
+    // it automatically passes the whole state in
+const mapStateToProps = createStructuredSelector(
     {
-        cartItems
+        cartItems: selectCartItems
+
     }
 );
 

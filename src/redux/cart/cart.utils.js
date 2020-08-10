@@ -15,6 +15,8 @@ export const addItemToCart = (cartItems, cartItemToAdd) => {
     return [...cartItems,{ ...cartItemToAdd, quantity: 1 }];
 };
 
+
+//calculation to remove items and also update quantity in checkout page
 export const removeItemFromCart = (cartItems, cartItemToRemove) => {
     const existingCartItems = cartItems.find(
         cartItem => cartItem.id === cartItemToRemove.id

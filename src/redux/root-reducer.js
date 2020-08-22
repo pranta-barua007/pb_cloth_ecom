@@ -4,6 +4,8 @@ import storage from 'redux-persist/lib/storage';//local storage from window obje
 
 import userReducer from './user/user.reducer';
 import cartReducer from './cart/cart.reducer';
+import directoryReducer from './directory/directory.reducer';
+import shopReducer from './shop/shop.reducer';
 
 //everything from the root ,whitelist consist what reducer should be persist (should be using storage)
 const persistConfig = {
@@ -15,7 +17,9 @@ const persistConfig = {
 const rootReducer = combineReducers (
     {
         user: userReducer,
-        cart: cartReducer
+        cart: cartReducer,
+        directory: directoryReducer,
+        shop: shopReducer
     }
 );
 

@@ -78,7 +78,7 @@ const mapStateToProps = createStructuredSelector(
   {
     currentUser: selectCurrentUser
   }
-)
+);
 
 // dispatch ensures whatever object is passed to it. its going to action obj that it pass to the reducer
   // setCurrentUser is a action object ,which dispatch needs

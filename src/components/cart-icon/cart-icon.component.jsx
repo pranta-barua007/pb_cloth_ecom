@@ -20,7 +20,7 @@ const CartIcon = ({ toggleCartHidden, itemCount }) => (
 
 // REDUX code start ----->
 
-    //WHEN there is multiple items to be passed in we can use createStructuredSelector
+    //WHEN there is multiple items(state) to be passed in we can use createStructuredSelector
     // it automatically passes the whole state in
 const mapStateToProps = createStructuredSelector(
     {

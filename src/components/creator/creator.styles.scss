@@ -1,0 +1,23 @@
+.creator {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .creator-github {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .github-icon, .medium-icon{
+        width: 24px;
+        height: 24px;
+        cursor: pointer;
+    }
+
+    .linkedin-icon {
+        width: 18px;
+        height: 24px;
+        cursor: pointer;
+    }
+}

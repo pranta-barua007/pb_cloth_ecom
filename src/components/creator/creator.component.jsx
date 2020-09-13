@@ -16,7 +16,9 @@ const Creator = () => (
             Pranta Barua &copy;</a></span>
         </div>
         <div className='creator-info'>
-            <LinkedinIcon className="linkedin-icon" />
+            <a target="_blank" href="https://www.linkedin.com/in/pranta-barua-b1760218a/">
+                <LinkedinIcon className="linkedin-icon" />
+            </a>
             <MediumIcon className="medium-icon" />
         </div>
     </div>

@@ -4,9 +4,13 @@ import { persistStore } from 'redux-persist'; // persisted version of store to m
 
 import rootReducer from './root-reducer';
 
-const middleWares = [logger];
+const middlewares = [];
 
-export const store = createStore(rootReducer, applyMiddleware(...middleWares));
+if (process.env.NODE_ENV === 'development') {
+    middlewares.push(logger);
+}
+
+export const store = createStore(rootReducer, applyMiddleware(...middlewares));
 
 //modified version of store with caching feature
 export const persistor = persistStore(store);

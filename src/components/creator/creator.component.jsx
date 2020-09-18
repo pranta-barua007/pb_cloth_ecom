@@ -9,14 +9,14 @@ import './creator.styles.scss';
 const Creator = () => (
     <div className='creator'>
         <div className="creator-github">
-            <a target="_blank" href="https://github.com/pranta-barua007">
+            <a target="_blank" rel="noopener noreferrer" href="https://github.com/pranta-barua007">
                 <GithubIcon className="github-icon"/> 
             </a>
-            <span className="creator-name"><a target="_blank" href="https://github.com/pranta-barua007">
+            <span className="creator-name"><a target="_blank" rel="noopener noreferrer" href="https://github.com/pranta-barua007">
             Pranta Barua &copy;</a></span>
         </div>
         <div className='creator-info'>
-            <a target="_blank" href="https://www.linkedin.com/in/pranta-barua-b1760218a/">
+            <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/pranta-barua-b1760218a/">
                 <LinkedinIcon className="linkedin-icon" />
             </a>
             <MediumIcon className="medium-icon" />

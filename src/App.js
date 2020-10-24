@@ -3,9 +3,10 @@ import { Switch, Route, Redirect } from 'react-router-dom';
 
 import { connect } from 'react-redux';
 import { createStructuredSelector } from 'reselect';
+
 import { selectCurrentUser } from './redux/user/user.selectors';
 
-import { setCurrentUser } from './redux/user/user.actions';
+import { checkUserSession } from './redux/user/user.actions';
 
 import './App.css';
 
@@ -18,29 +19,28 @@ import Header from './components/header/header.component';
 import Creator from './components/creator/creator.component';
 
 
-import { auth, createUserProfileDocument } from './firebase/firebase.utils';
-
-
-
 class App extends React.Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser } = this.props;
-    this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
-      if (userAuth) {
-        const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
-          setCurrentUser({
-              id: snapShot.id,
-              ...snapShot.data()
-          });
-        });
-      }
+    const { checkUserSession } = this.props;
+    checkUserSession();
+   
+    // this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
+    //   if (userAuth) {
+    //     const userRef = await createUserProfileDocument(userAuth);
 
-      setCurrentUser(userAuth);
-    });
+    //     userRef.onSnapshot(snapShot => {
+    //       setCurrentUser({
+    //           id: snapShot.id,
+    //           ...snapShot.data()
+    //       });
+    //     });
+    //   }
+
+    //   setCurrentUser(userAuth);
+    // });
   }
 
   componentWillUnmount() {
@@ -85,11 +85,11 @@ const mapStateToProps = createStructuredSelector(
 
 // dispatch ensures whatever object is passed to it. its going to action obj that it pass to the reducer
   // setCurrentUser is a action object ,which dispatch needs
-const mapDispatchToProps = dispatch => (
+const mapDispatchToProps = (dispatch) => (
   {
-    setCurrentUser: user => dispatch(setCurrentUser(user))
+    checkUserSession: () => dispatch(checkUserSession())
   }
-);
+)
 
 // REDUX code end----->
 

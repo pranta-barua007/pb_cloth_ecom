@@ -44,6 +44,18 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
   return userRef;
 };
 
+//function to get current user
+  //if the promise resolves it will return with the userAuth obj
+  //else will return null
+export const getCurrentUser = () => {
+  return new Promise((resolve, reject) => {
+    const unsubscribe = auth.onAuthStateChanged(userAuth => {
+      unsubscribe();
+      resolve(userAuth);
+    }, reject)
+  }
+)}
+
 //function to convert collections to map object
 export const convertCollectionsSnapshotToMap = ( collections ) => {
   const transformedCollection = collections.docs.map(doc => {
@@ -86,8 +98,8 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();
 
-const provider = new firebase.auth.GoogleAuthProvider();
-provider.setCustomParameters({ prompt: 'select_account' });
-export const signInWithGoogle = () => auth.signInWithPopup(provider);
+export const googleProvider = new firebase.auth.GoogleAuthProvider();
+googleProvider.setCustomParameters({ prompt: 'select_account' });
+export const signInWithGoogle = () => auth.signInWithPopup(googleProvider);
 
 export default firebase;

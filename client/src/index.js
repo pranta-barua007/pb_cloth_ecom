@@ -24,6 +24,6 @@ ReactDOM.render(
   document.getElementById('root')
 );
 
-serviceWorker.register({CONFIG});
+serviceWorker.register(CONFIG);
 
 

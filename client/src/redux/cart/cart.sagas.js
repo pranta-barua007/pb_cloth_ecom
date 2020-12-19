@@ -19,7 +19,7 @@ export function* checkCartFromFirebase({ payload: user }) {
 
 export function* onUserSignIn() {
   yield takeLatest(UserActionTypes.SIGN_IN_SUCCESS, checkCartFromFirebase);  
-}
+};
 
 //update current user cart information
 export function* updateCartInFirebase() {
@@ -44,7 +44,7 @@ export function* onCartChange() {
         ],
         updateCartInFirebase
     );
-}
+};
 
 //clear cart on sign out
 export function* clearCartOnSignOut() {

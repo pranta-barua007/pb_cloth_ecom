@@ -24,4 +24,4 @@ sagaMiddleware.run(rootSaga);//pass every saga events here to be listened by red
 //modified version of store with caching feature
 export const persistor = persistStore(store);
 
-export default { store, persistor };
+//export default { store, persistor };

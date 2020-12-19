@@ -14,7 +14,7 @@ const config = {
 };
 
 
-//creating user in data base of firestore
+//creating user in data base of firestore on signup
 firebase.initializeApp(config);
 
 export const createUserProfileDocument = async (userAuth, additionalData) => {
@@ -37,6 +37,7 @@ export const createUserProfileDocument = async (userAuth, additionalData) => {
         ...additionalData
       });
     } catch (error) {
+      alert('Sign Up Failed, please try again');
       console.log('error creating user', error.message);
     }
   }
@@ -54,7 +55,27 @@ export const getCurrentUser = () => {
       resolve(userAuth);
     }, reject)
   }
-)}
+)};
+
+//function to get user cart from firestore
+export const getUserCartRef = async userId => {
+  const cartRef = firestore.collection('carts').where('userId', '==', userId);
+  const snapShot = await cartRef.get();
+
+  if(snapShot.empty) {
+    const cartDocRef = firestore.collection('carts').doc();
+    await cartDocRef.set(
+      {
+        userId,
+        cartItems: []
+      }
+    );
+    return cartDocRef;
+  } else {
+    //doc(0) = cartItems and doc(1) = userId in firestore
+    return snapShot.docs[0].ref;
+  }
+};
 
 //function to convert collections to map object
 export const convertCollectionsSnapshotToMap = ( collections ) => {
@@ -72,7 +93,7 @@ export const convertCollectionsSnapshotToMap = ( collections ) => {
     accumulator[collection.title.toLowerCase()] = collection;
       return accumulator;
   }, {});
-}
+};
 
 
 //function to make new collection and docs in cloud firestore
@@ -93,7 +114,7 @@ export const addCollectionAndDocuments = async (collectionKey, objectsToAdd) => 
   );
 
   return await batch.commit(); //trigger the batch, it returns a promise, when it succed it return a void value(null)
-}
+};
 
 export const auth = firebase.auth();
 export const firestore = firebase.firestore();

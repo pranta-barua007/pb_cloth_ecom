@@ -9,7 +9,7 @@ import { fetchCollectionsSuccess, fetchCollectionsFilure } from './shop.actions'
 //generator function
     //yield pauses the function(generator function must have 'yield')
 //call take a function as 1st param , and arguments in 2nd.... params)
-//put works like 'dispatch'
+//put works like 'dispatch' dispatching actions to component
 export function* fetchCollectionsStartAsync(){
     try{
         const collectionRef = firestore.collection('collections');
@@ -23,7 +23,7 @@ export function* fetchCollectionsStartAsync(){
 
 //takeEvery()
     //recieves an 'action type' as 1st param, and a generator func as 2nd param which refers to the action
-    //takeEvery creates a non blocking flow in generator function
+    //takeEvery creates a non blocking(doesn't stop javascript) flow in generator function
         //for the action it listens in 1st param, it runs the generator func in 2nd param 
         //(looping every time it listens to that specific function)
 

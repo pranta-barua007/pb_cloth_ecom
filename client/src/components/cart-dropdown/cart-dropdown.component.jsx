@@ -18,7 +18,7 @@ import {
 } from './cart-dropdown.styles';
 
 const CartDropdown = ({ cartItems, history, dispatch }) => (
-    <CartDropdownContainer>
+  <CartDropdownContainer>
     <CartItemsContainer>
       {cartItems.length ? (
         cartItems.map(cartItem => (

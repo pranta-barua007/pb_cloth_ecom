@@ -6,6 +6,10 @@ import { Link } from 'react-router-dom';
 export const HeaderContainer = styled.div`
     height: 70px;
     width: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 1;
+    position: sticky;
+    top: 0;
     display: flex;
     justify-content: space-between;
     margin-bottom: 25px;

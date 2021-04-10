@@ -12,7 +12,7 @@ const Creator = () => (
             <a target="_blank" rel="noopener noreferrer" href="https://github.com/pranta-barua007">
                 <GithubIcon className="github-icon"/> 
             </a>
-            <span className="creator-name"><a target="_blank" rel="noopener noreferrer" href="https://github.com/pranta-barua007">
+            <span className="creator-name"><a target="_blank" rel="noopener noreferrer" href="https://prantabarua.ml">
             Pranta Barua &copy;</a></span>
         </div>
         <div className='creator-info'>

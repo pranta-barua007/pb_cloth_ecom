@@ -26,6 +26,8 @@
 /client/yarn-debug.log*
 /client/yarn-error.log*
 
+/public
+
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*

@@ -14,7 +14,6 @@ const stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 const app = express();
 const port = process.env.PORT || 8000;
 
-
 app.use(helmet({
     contentSecurityPolicy: {
         directives: {

@@ -22,7 +22,7 @@
         "express-sslify": "^1.2.0",
         "helmet": "^4.6.0",
         "morgan": "^1.10.0",
-        "stripe": "8.141.0"
+        "stripe": "^8.191.0"
     },
     "devDependencies": {
         "concurrently": "^6.4.0",

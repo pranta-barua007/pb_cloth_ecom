@@ -18,9 +18,9 @@ app.use(helmet({
     contentSecurityPolicy: {
         directives: {
           ...helmet.contentSecurityPolicy.getDefaultDirectives(),
-          "script-src": ["'self'", "checkout.stripe.com", "apis.google.com"],
-          "img-src": ["'self'", "i.ibb.co", "q.stripe.com"],
-          "frame-src": ["'self'", "pb-cloth-db.firebaseapp.com"],
+          "script-src": ["'self'", "apis.google.com", "checkout.stripe.com"],
+          "img-src": ["'self'", "i.ibb.co", "i.imgur.com", "q.stripe.com"],
+          "frame-src": ["'self'", "pb-cloth-db.firebaseapp.com", "checkout.stripe.com"],
           "connect-src": ["'self'", "firestore.googleapis.com", "www.googleapis.com"]
         },
       },

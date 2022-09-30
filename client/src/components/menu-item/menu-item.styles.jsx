@@ -8,7 +8,8 @@ export const MenuItemContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border: 1px solid black;
+	border: 1px transparent;
+  border-radius: 10px;
 	margin: 0 7.5px 15px;
 	overflow: hidden;
 

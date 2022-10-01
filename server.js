@@ -21,7 +21,7 @@ app.use(helmet({
           "script-src": ["'self'", "apis.google.com", "checkout.stripe.com"],
           "img-src": ["'self'", "i.ibb.co", "i.imgur.com", "q.stripe.com"],
           "frame-src": ["'self'", "pb-cloth-db.firebaseapp.com", "checkout.stripe.com"],
-          "connect-src": ["'self'", "firestore.googleapis.com", "www.googleapis.com"]
+          "connect-src": ["'self'", "securetoken.googleapis.com", "firestore.googleapis.com", "www.googleapis.com"]
         },
       },
   }));
